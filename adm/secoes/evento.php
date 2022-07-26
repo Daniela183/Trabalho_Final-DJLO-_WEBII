@@ -23,8 +23,10 @@ include_once("../classes/manipuladados.php");
                 <th>Horário Fim</th>
                 <th>Vagas</th>
                 <th>Horas</th>
+                <th>Registrar Presença</th>
                 <th>Alterar</th>
                 <th>Excluir</th>
+                
             </tr>
 
             <?php
@@ -57,6 +59,7 @@ include_once("../classes/manipuladados.php");
                         <input type="hidden" name="hrFim" value="<?= $dados["horarioF"]; ?>" />
                         <input type="hidden" name="numVagas" value="<?= $dados["vagas"]; ?>" />
                         <input type="hidden" name="numHoras" value="<?= $dados["horas"]; ?>" />
+                        <td><button type="submit" name="botao" value="presenca" class="btn btn-primary">Registrar presença</button></td>
                         <td><button type="submit" name="botao" value="editar" class="btn btn-success">Alterar</button></td>
                         <td><button type="submit" name="botao" value="excluir" class="btn btn-danger">Excluir</button></td>
                     </tr>

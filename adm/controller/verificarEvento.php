@@ -11,7 +11,8 @@ $hrFim = $_POST["hrFim"];
 $numVagas = $_POST["numVagas"];
 $hrHoras = $_POST["numHoras"];
 
-
+session_start();
+$_SESSION["idEvento"] = $id;
 
 
 switch ($op) {
@@ -68,6 +69,11 @@ switch ($op) {
         $remove->delete();
         echo '<script> alert("O arquivo foi removido com sucesso");</script>';
         echo "<script> location = '../principal.php';</script>";
+
+
+        break;
+    case "presenca":
+        echo "<script> location = '../principal.php?secao=menuPresenca';</script>";
 
 
         break;

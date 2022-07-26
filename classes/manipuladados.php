@@ -80,8 +80,35 @@ class manipuladados extends conexao{
         public function getIdAlunoByName($name){
             $this->sql = "SELECT * FROM tb_aluno WHERE nome = '$name'";
             $this->qr = self::execSQL($this->sql);
-            return $this->qr;
+            $dados =  self::listQr($this->qr);
+            return $dados;
+        }
+        public function getIdAlunoByCPFouMatricula($dado, $idevento){
+            $this->sql = "SELECT a.id FROM tb_evento_aluno a
+            left join tb_aluno b
+            on a.id_aluno = b.id
+            left join tb_evento c
+            on a.id_evento = c.id
+            where b.matricula = '$dado' or b.cpf = '$dado' and c.id = '$idevento'";
+            $this->qr = self::execSQL($this->sql);
+            $dados =  self::listQr($this->qr);
+            return $dados;
         }
         
+        public function verificarCadastro($id_evento, $id_aluno){
+            $this->sql = "SELECT * FROM tb_evento_aluno WHERE id_evento = '$id_evento' and id_aluno = '$id_aluno'";
+            $this->qr = self::execSQL($this->sql);
+            $linhas = @mysqli_num_rows($this->qr);
+            return $linhas;
+
+        }
+        public function verificarVagas($id_evento){
+            $this->sql = "SELECT vagas FROM tb_evento WHERE id='$id_evento'";
+            $this->qr = self::execSQL($this->sql);
+            $dados =  self::listQr($this->qr);
+            return $dados;
+
+        }
+
 }
 ?>
