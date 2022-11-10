@@ -83,13 +83,19 @@ class manipuladados extends conexao{
             $dados =  self::listQr($this->qr);
             return $dados;
         }
+        public function getIdAlunoByMatricula($matricula){
+            $this->sql = "SELECT id FROM tb_aluno WHERE matricula = '$matricula'";
+            $this->query = self::execSQL($this->sql);
+            $dados =  self::listQr($this->query);
+            return $dados;
+        }
         public function getIdAlunoByCPFouMatricula($dado, $idevento){
-            $this->sql = "SELECT a.id FROM tb_evento_aluno a
+            $this->sql = "SELECT a.id as ida FROM tb_evento_aluno a
             left join tb_aluno b
             on a.id_aluno = b.id
             left join tb_evento c
             on a.id_evento = c.id
-            where b.matricula = '$dado' or b.cpf = '$dado' and c.id = '$idevento'";
+            where b.matricula = '$dado' and c.id = '$idevento'";
             $this->qr = self::execSQL($this->sql);
             $dados =  self::listQr($this->qr);
             return $dados;
@@ -109,6 +115,5 @@ class manipuladados extends conexao{
             return $dados;
 
         }
-
 }
 ?>

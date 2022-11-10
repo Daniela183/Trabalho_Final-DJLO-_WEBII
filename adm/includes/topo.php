@@ -39,6 +39,9 @@
                 <a class="nav-link active px-3 fw-bold" href="?secao=formEvento">CADASTRAR</a>
               </li>
               <li class="nav-item">
+                <a class="nav-link active px-3 fw-bold" href="../fpdf/relatorio.php">CERTIFICADO</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link active px-3 fw-bold  " href="../logout.php">LOGOUT</a>
               </li>
   

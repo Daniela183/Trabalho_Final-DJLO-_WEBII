@@ -1,5 +1,6 @@
 <?php 
 session_start();
+
 ?>
 
 <head>
@@ -28,8 +29,10 @@ session_start();
             <input type="hidden" name="txtId" value='<?=$_SESSION["idEvento"];?>'>
             <input type="text" name="txtCheckout">
             <button type="submit" name="botao" value="excluir" class="btn btn-danger">Checout</button>
+            <h1 id="resposta"> </h1>
         </form>
         </div>
     </div>
 </div>
+
 
